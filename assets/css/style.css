@@ -81,6 +81,11 @@ a:hover {
     justify-content: space-between;
 }
 
+#round {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
 #player {
     color: green;
     font-weight: bold;

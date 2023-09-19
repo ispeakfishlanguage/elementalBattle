@@ -27,10 +27,10 @@
         <div id="start-screen" class="container">
             <h2>Choose a number of rounds to start</h2>
             <div class="controls-area">
-                <button id="start-1" class="btn btn--big btn--gray">1</button>
-                <button id="start-3" class="btn btn--big btn--gray">3</button>
-                <button id="start-5" class="btn btn--big btn--gray">5</button>
-                <button id="show-rules" class="btn btn--big btn--gray">Rules</button>
+                <button data-type="start-1" class="btn btn--big btn--gray">1</button>
+                <button data-type="start-3" class="btn btn--big btn--gray">3</button>
+                <button data-type="start-5" class="btn btn--big btn--gray">5</button>
+                <button data-type="show-rules" class="btn btn--big btn--gray">Rules</button>
             </div>
 
         </div>
@@ -55,17 +55,23 @@
                 </button>
                 <!--Score visualization-->
                 <div class="score-area">
+                    <p class="scores">Round <span id="round">1</span></p>
                     <p class="scores">Player <span id="player">0</span></p>
                     <p class="scores">Computer <span id="computer">0</span></p>
                 </div>
+                <div>
+                    <p id="result"></p>
+                </div>
+                <!--Reset button-->
+                <button data-type="reset" class="btn btn--big btn--gray">Restart</button>
             </div>
         </div>
         <!-- Rules -->
         <div id="rules" class="container">
             <h2>Rules</h2>
             <strong>Objective:</strong>
-            <p>The player chooses an element, and the computer randomly selects an element. The game determines the
-                winner based on the interactions between the elements.</p>
+            <p>The player chooses an element, and the computer randomly selects an element. The game
+                determines the winner based on the interactions between the elements.</p>
 
             <strong>Elements:</strong>
             <ul>

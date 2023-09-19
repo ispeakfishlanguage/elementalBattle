@@ -5,7 +5,7 @@
 //Run the game
 let playerScore = 0;
 let computerScore = 0;
-let round = 1;
+let rounds;
 
 const elements = {
     fire: ["earth", "air"],
@@ -13,14 +13,16 @@ const elements = {
     earth: ["water", "air"],
     air: ["earth", "lightning"],
     lightning: ["water", "air"]
-}
+};
+
+const startScreen = document.getElementById("start-screen");
+const startButtons = startScreen.getElementsByTagName("button");
+const gameScreen = document.getElementById("game-area");
+const rulesScreen = document.getElementById("rules");
+const choices = gameScreen.getElementsByTagName("button").getAttribute("data-type");
 
 document.addEventListener("DOMContentLoaded", function () {
-
-    let startScreen = document.getElementById("start-screen");
-    let buttons = startScreen.getElementsByTagName("button");
-
-    for (let button of buttons) {
+    for (let button of startButtons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "show-rules") {
                 showRules();
@@ -31,54 +33,107 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    document.getElementById("show-rules").addEventListener("keydown", function (event) {
-
-        if (event.key === "Control") {
-            showRules();
-        }
-    })
-
-    startGame("start-1");
+    showStartScreen();
 })
 
 function startGame(rounds) {
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("game-area").style.display = "block";
-    document.getElementById("rounds").innerHTML
-    
+    if (rounds === "start-3") {
+        document.getElementById("rounds").innerHTML = 3;
+    } else if (rounds === "start-5") {
+        document.getElementById("rounds").innerHTML = 5;
+    } else {
+        document.getElementById("rounds").innerHTML = 1;
+    }
+    playGame(rounds);
 }
-function determinePlayerChoice(choice) {
-    let gameScreen = document.getElementById("game-area");
-    let choices = gameScreen.getElementsByTagName("button");
+function playGame(rounds) {
+    let playerChoice = determinePlayerChoice();
+    let computerChoice = determineComputerChoice();
+    let winner = determineWinner(playerChoice, computerChoice);
+    updateScore(winner);
+    showResult(winner);
+    updateRound(round);
+}
+
+function determinePlayerChoice() {
     for (let choice of choices) {
         choice.addEventListener("click", function () {
-            let playerChoice = element.getAttribute("data-type");
-            return playerChoice;
+            return playerChoice = element.getAttribute("data-type");
         })
     }
 }
 function determineComputerChoice() {
-    let gameScreen = document.getElementById("game-area");
-    let elements = gameScreen.getElementsByTagName("button");
-    let computerChoice = elements[Math.floor(Math.random() * elements.length)];
-    return computerChoice;
+    return computerChoice = elements[Math.floor(Math.random() * 5)];
 }
 function determineWinner(playerChoice, computerChoice) {
+    let winner = "";
+    if (playerChoice === computerChoice) {
+        winner = "tie";
+    }
+    playerChoice in elements[computerChoice] ? winner = "computer" : winner = "player";
 
-
+    return winner;
 }
 function updateScore(winner) {
-
+    if (winner === "player") {
+        playerScore++;
+    } else if (winner === "computer") {
+        computerScore++;
+    }
+    document.getElementById("player").innerHTML = playerScore;
+    document.getElementById("computer").innerHTML = computerScore;
 }
-function updateRound() {
-
+function updateRound(round) {
+    round++;
+    document.getElementById("round").innerHTML = round;
+    if (round === rounds) {
+        endGame();
+    }
+}
+function showResult(winner) {
+    let result = document.getElementById("result");
+    if (winner === "player") {
+        result.innerHTML = "You win!";
+    } else if (winner === "computer") {
+        result.innerHTML = "You lose!";
+    } else {
+        result.innerHTML = "It's a tie!";
+    }
 }
 function showRules() {
-
+    document.getElementById("start-screen").style.display = "none";
+    document.getElementById("game-area").style.display = "none";
+    document.getElementById("rules").style.display = "block";
 }
 function hideRules() {
-
+    document.getElementById("start-screen").style.display = "none";
+    document.getElementById("game-area").style.display = "block";
+    document.getElementById("rules").style.display = "none";
 }
 function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    round = 1;
+    document.getElementById("player").innerHTML = playerScore;
+    document.getElementById("computer").innerHTML = computerScore;
+    document.getElementById("round").innerHTML = round;
+    showStartScreen();
+}
 
+function endGame() {
+    if (playerScore > computerScore) {
+        alert("You win!");
+    } else if (computerScore > playerScore) {
+        alert("You lose!");
+    } else {
+        alert("It's a tie!");
+    }
+    resetGame();
+}
+function showStartScreen() {
+    document.getElementById("start-screen").style.display = "block";
+    document.getElementById("game-area").style.display = "none";
+    document.getElementById("rules").style.display = "none";
 }
