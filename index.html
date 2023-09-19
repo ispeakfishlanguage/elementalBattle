@@ -13,17 +13,27 @@
     Rock paper scissors">
 
 </head>
+
 <body>
     <!--Header-->
     <header>
         <h1 class="heading">
             <img class="logo" src="assets/images/logo.png" alt="logo"> Elemental Battle
         </h1>
-    
+
     </header>
     <!--Main-->
     <main>
-        <div class="game-area">
+        <div id="start-screen">
+            <h2>Choose a number of rounds to start</h2>
+            <button id="start-1" class="btn btn--big">Single Round
+            </button>
+            <button id="start-3" class="btn btn--big">Best of 3</button>
+            <button id="start-5" class="btn btn--big">Best of 5</button>
+        </div>
+        <div id="loader" style="display:none;"></div>
+        <div class="game-area animate-bottom" style="display:none;" id="game-area" onload="loadingScreen()"
+            style="margin:0;">
             <div class="controls-area">
                 <button data-type="fire" class="btn btn--big btn--red">
                     <i class="fas fa-fire"></i>
@@ -41,12 +51,18 @@
                     <i class="fas fa-cloud-bolt"></i>
                 </button>
             </div>
-        
+
+            <div class="score-area">
+                <p class="scores">Player <span id="player">0</span></p>
+                <p class="scores">Computer <span id="computer">0</span></p>
+            </div>
     </main>
 
     <!--Footer-->
     <footer>
-
+        <div class="footer">
+            <p>Elemental Battle was made by <a href="https://github.com/ispeakfishlanguage/">ispeakfishlang</a></p>
+        </div>
     </footer>
 
     <!--Scripts-->
