@@ -19,7 +19,7 @@ const startScreen = document.getElementById("start-screen");
 const startButtons = startScreen.getElementsByTagName("button");
 const gameScreen = document.getElementById("game-area");
 const rulesScreen = document.getElementById("rules");
-const choices = gameScreen.getElementsByTagName("button").getAttribute("data-type");
+const choices = gameScreen.getElementsByTagName("button");
 
 document.addEventListener("DOMContentLoaded", function () {
     for (let button of startButtons) {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (this.getAttribute("data-type") === "show-rules") {
                 showRules();
             } else {
-                let rounds = this.getAttribute("data-type");
+                rounds = this.getAttribute("data-type");
                 startGame(rounds);
             }
         })
@@ -58,10 +58,11 @@ function playGame(rounds) {
 }
 
 function determinePlayerChoice() {
+    let playerChoice = "";
     for (let choice of choices) {
         choice.addEventListener("click", function () {
-            return playerChoice = element.getAttribute("data-type");
-        })
+            return playerChoice = this.getAttribute("data-type");
+        });
     }
 }
 function determineComputerChoice() {
@@ -73,9 +74,11 @@ function determineWinner(playerChoice, computerChoice) {
         winner = "tie";
     }
     playerChoice in elements[computerChoice] ? winner = "computer" : winner = "player";
-
+    
     return winner;
 }
+
+
 function updateScore(winner) {
     if (winner === "player") {
         playerScore++;
@@ -85,6 +88,8 @@ function updateScore(winner) {
     document.getElementById("player").innerHTML = playerScore;
     document.getElementById("computer").innerHTML = computerScore;
 }
+
+
 function updateRound(round) {
     round++;
     document.getElementById("round").innerHTML = round;
@@ -92,6 +97,8 @@ function updateRound(round) {
         endGame();
     }
 }
+
+
 function showResult(winner) {
     let result = document.getElementById("result");
     if (winner === "player") {
@@ -102,16 +109,19 @@ function showResult(winner) {
         result.innerHTML = "It's a tie!";
     }
 }
+
 function showRules() {
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("game-area").style.display = "none";
     document.getElementById("rules").style.display = "block";
 }
+
 function hideRules() {
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("game-area").style.display = "block";
     document.getElementById("rules").style.display = "none";
 }
+
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
