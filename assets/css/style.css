@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+body {
+    background: url('../images/background.png') no-repeat center center/cover;
+    font-family: 'MedievalSharp', cursive;
+    color: black;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+    color: darkgoldenrod;
+    text-decoration: wavy;
+}
+div {
+    box-sizing: border-box;
+    background-color: whitesmoke 0.5;
+}
+/* Heading */
+
+.heading {
+    text-align: center;
+    font-size: 2.5rem;
+    background-color: black 0.5;
+    color: white;
+}
+
+.logo {
+    height: 40px;
+    padding-right: 5px;
+}
+
+/* Start Screen */
+#start-screen {
+    display: block;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    width: 60%;
+    height: 50vh;
+    max-height: 400px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+/* Game layout */
+.game-area {
+    /*display: none;*/
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    width: 60%;
+    height: 50vh;
+    max-height: 400px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.score-area {
+    /*display: none;*/
+    background-color: whitesmoke;
+    margin: 5px auto;
+    width: 60%;
+    font-size: 1.2rem;
+}
+
+.controls-area {
+    width: 90%;
+    margin: 3px auto;
+    display: inline-block;
+    justify-content: space-between;
+}
+
+#player {
+    color: green;
+    font-weight: bold;
+}
+
+#computer {
+    color: red;
+    font-weight: bold;
+}
+
+.scores {
+    display: inline-block;
+    padding: 25px;
+}
+
+/* Buttons */
+
+.btn {
+    width: 220px;
+    height: 60px;
+    font-family: 'MedievalSharp', cursive;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: white;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn--big {
+    padding-top: 10px;
+    border-radius: 50%;
+    background-color: white;
+    border: 10px solid;
+    width: 100px;
+    height: 100px;
+    font-size: 3.2rem;
+    margin: 0 30px;
+    transition: all 0.5s;
+}
+
+.btn--big::after{
+    content: attr(data-type);
+    font-size: 1rem;
+    color: #445361;
+    position: relative;
+    left: -0.5em;
+}
+
+.btn--blue {
+    border-color: blue;
+    color: blue;
+}
+
+.btn--blue:active,
+.btn--blue:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.btn--yellow {
+    border-color: yellow;
+    color: yellow;
+}
+
+.btn--yellow:active,
+.btn--yellow:hover {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+.btn--red {
+    border-color: red;
+    color: red;
+}
+
+.btn--red:active,
+.btn--red:hover {
+    background-color: darkred;
+    color: white;
+}
+
+.btn--green {
+    border-color: green;
+    color: green;
+}
+
+.btn--green:active,
+.btn--green:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+.btn--purple {
+    border-color: purple;
+    color: purple;
+}
+
+.btn--purple:active,
+.btn--purple:hover {
+    background-color: darkorchid;
+    color: white;
+}
+
+
+.btn--gray {
+    margin-top: 25px;
+    background-color: #445361;
+    border: 1px transparent;
+    border-radius: 20px;
+}
+
+.btn--gray:active,
+.btn--gray:hover {
+    background-color: #0d1013;
+}
+
+/* Rules Screen */
+#rules {
+    /*display: none;*/
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    width: 60%;
+    height: 50vh;
+    max-height: 400px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#rules ul {
+    text-align: left;
+    margin-left: 20px;
+    list-style-type: none;
+}
+/* Footer */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+/* Media queries */
+
+@media (max-width: 414px) {
+    #start-screen, .controls-area {
+        width: 100%;
+    }
+
+    .btn--big {
+        margin: 0 10px;
+        padding: 5px;
+        border: 5px solid;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .btn--big::after {
+        font-size: 0.6rem;
+        left: -0.7rem;
+    }
+    .btn--gray {
+        margin-top: 0;
+    }
+
+    .score-area {
+        width: 100%;
+    }
+
+    .scores {
+        margin: 0.5em auto;
+        display: block;
+        padding: 5px;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 320px) {
+    #rules, #start-screen, .game-area {
+        height: 70vh;
+    }
+
+    #start-screen, .controls-area {
+        width: 75%;
+        margin: 10px auto;
+    }
+
+    .btn--big {
+        margin: 10px 10px;
+    }
+}
