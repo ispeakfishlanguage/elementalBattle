@@ -65,7 +65,7 @@ a:hover {
 
 /* Game layout */
 #game-area {
-    /*display: none*/
+    display: none;
 }
 
 .score-area {
@@ -205,6 +205,7 @@ a:hover {
 /* Rules Screen */
 #rules {
     text-align: left;
+    display: none;
 }
 
 #rules ul {
