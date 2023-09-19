@@ -17,26 +17,25 @@
 <body>
     <!--Header-->
     <header>
-        <div class="heading">
-            <h1>
-                <img class="logo" src="assets/images/logo.png" alt="logo"> Elemental Battle
-            </h1>
-        </div>
-
+        <h1 class="heading">
+            <img class="logo" src="assets/images/logo.png" alt="logo"> Elemental Battle
+        </h1>
     </header>
     <!--Main-->
     <main>
         <!--Start screen-->
-        <div id="start-screen" class="">
+        <div id="start-screen" class="container">
             <h2>Choose a number of rounds to start</h2>
-            <button id="start-1" class="btn btn--big btn--gray">1
-            </button>
-            <button id="start-3" class="btn btn--big btn--gray">3</button>
-            <button id="start-5" class="btn btn--big btn--gray">5</button>
-            <button id="show-rules" class="btn btn--big btn--gray">Rules</button>
+            <div class="controls-area">
+                <button id="start-1" class="btn btn--big btn--gray">1</button>
+                <button id="start-3" class="btn btn--big btn--gray">3</button>
+                <button id="start-5" class="btn btn--big btn--gray">5</button>
+                <button id="show-rules" class="btn btn--big btn--gray">Rules</button>
+            </div>
+
         </div>
         <!--Game area-->
-        <div class="game-area" id="game-area">
+        <div class="container" id="game-area">
             <!--Player controls-->
             <div class="controls-area">
                 <button data-type="fire" class="btn btn--big btn--red">
@@ -54,38 +53,38 @@
                 <button data-type="lightning" class="btn btn--big btn--yellow">
                     <i class="fas fa-cloud-bolt"></i>
                 </button>
-            <!--Score visualization-->
-            <div class="score-area">
-                <p class="scores">Player <span id="player">0</span></p>
-                <p class="scores">Computer <span id="computer">0</span></p>
+                <!--Score visualization-->
+                <div class="score-area">
+                    <p class="scores">Player <span id="player">0</span></p>
+                    <p class="scores">Computer <span id="computer">0</span></p>
+                </div>
             </div>
         </div>
-            
-            <!-- Rules -->
-            <div id="rules">
-                <h2>Rules</h2>
-                <strong>Objective:</strong>
-                <p>The player chooses an element, and the computer randomly selects an element. The game determines the
+        <!-- Rules -->
+        <div id="rules" class="container">
+            <h2>Rules</h2>
+            <strong>Objective:</strong>
+            <p>The player chooses an element, and the computer randomly selects an element. The game determines the
                 winner based on the interactions between the elements.</p>
 
-                <strong>Elements:</strong>
-                    <ul>
-                        <li>Fire</li>
-                        <li>Water</li>
-                        <li>Earth</li>
-                        <li>Air</li>
-                        <li>Lightning</li>
-                    </ul>
-                
-                <strong>Element Interactions:</strong>
-                <ul>
-                    <li>Fire beats Earth and Air.</li>
-                    <li>Water extinguishes Fire and defeats Lightning.</li>
-                    <li>Earth absorbs Water and Air.</li>
-                    <li>Air defeats Earth and Lightning.</li>
-                    <li>Lightning defeats Water and Air.</li>
-                </ul> 
-            </div>
+            <strong>Elements:</strong>
+            <ul>
+                <li>Fire</li>
+                <li>Water</li>
+                <li>Earth</li>
+                <li>Air</li>
+                <li>Lightning</li>
+            </ul>
+
+            <strong>Element Interactions:</strong>
+            <ul>
+                <li>Fire beats Earth and Air.</li>
+                <li>Water extinguishes Fire and defeats Lightning.</li>
+                <li>Earth absorbs Water and Air.</li>
+                <li>Air defeats Earth and Lightning.</li>
+                <li>Lightning defeats Water and Air.</li>
+            </ul>
+        </div>
     </main>
 
     <!--Footer-->

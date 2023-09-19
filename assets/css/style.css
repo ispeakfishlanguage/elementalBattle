@@ -3,29 +3,31 @@
 body {
     background: url('../images/background.png') no-repeat center center/cover;
     font-family: 'MedievalSharp', cursive;
-    color: black;
+    color: whitesmoke;
     text-align: center;
+}
+
+main {
+    background-color: none;
 }
 
 a {
     text-decoration: none;
     color: white;
 }
+
 a:hover {
     color: darkgoldenrod;
     text-decoration: wavy;
 }
-div {
-    box-sizing: border-box;
-    background-color: whitesmoke 0.5;
-}
-/* Heading */
 
+/* Heading */
 .heading {
     text-align: center;
     font-size: 2.5rem;
-    background-color: black 0.5;
     color: white;
+    text-shadow: 2px 2px 2px black;
+    background-color: none;
 }
 
 .logo {
@@ -33,37 +35,40 @@ div {
     padding-right: 5px;
 }
 
+/* Styling for container div */
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Use rgba with opacity for the background color */
+    max-width: 600px;
+    width: 60%;
+    border-radius: 5px;
+    margin: 0 auto;
+    /* Center horizontally */
+    padding: 1%;
+    /* Add some padding for spacing */
+    box-sizing: border-box;
+    /* Include padding and border in the width */
+}
+
+/* Reset opacity for text within the container */
+.container h2,
+.container p {
+    opacity: 1;
+    /* Keep the text fully opaque */
+}
+
+
 /* Start Screen */
 #start-screen {
     display: block;
-    background-color: whitesmoke;
-    box-sizing: border-box;
-    width: 60%;
-    height: 50vh;
-    max-height: 400px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1%;
-    border-radius: 5px;
 }
 
 /* Game layout */
-.game-area {
-    /*display: none;*/
-    background-color: whitesmoke;
-    box-sizing: border-box;
-    width: 60%;
-    height: 50vh;
-    max-height: 400px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1%;
-    border-radius: 5px;
+#game-area {
+    /*display: none*/
 }
 
 .score-area {
-    /*display: none;*/
-    background-color: whitesmoke;
     margin: 5px auto;
     width: 60%;
     font-size: 1.2rem;
@@ -99,7 +104,7 @@ div {
     font-family: 'MedievalSharp', cursive;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    color: white;
+    color: whitesmoke;
 }
 
 .btn:focus {
@@ -109,7 +114,7 @@ div {
 .btn--big {
     padding-top: 10px;
     border-radius: 50%;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.3);
     border: 10px solid;
     width: 100px;
     height: 100px;
@@ -118,17 +123,17 @@ div {
     transition: all 0.5s;
 }
 
-.btn--big::after{
+.btn--big::after {
     content: attr(data-type);
     font-size: 1rem;
-    color: #445361;
+    color: whitesmoke;
     position: relative;
     left: -0.5em;
 }
 
 .btn--blue {
-    border-color: blue;
-    color: blue;
+    border-color: lightskyblue;
+    color: lightskyblue;
 }
 
 .btn--blue:active,
@@ -138,8 +143,8 @@ div {
 }
 
 .btn--yellow {
-    border-color: yellow;
-    color: yellow;
+    border-color: gold;
+    color: gold;
 }
 
 .btn--yellow:active,
@@ -171,13 +176,13 @@ div {
 }
 
 .btn--purple {
-    border-color: purple;
-    color: purple;
+    border-color: magenta;
+    color: magenta;
 }
 
 .btn--purple:active,
 .btn--purple:hover {
-    background-color: darkorchid;
+    background-color: darkmagenta;
     color: white;
 }
 
@@ -193,20 +198,13 @@ div {
 .btn--gray:hover {
     background-color: #0d1013;
 }
+#show-rules {
+    font-size: medium;
+}
 
 /* Rules Screen */
 #rules {
-    /*display: none;*/
-    background-color: whitesmoke;
-    box-sizing: border-box;
-    width: 60%;
-    height: 50vh;
-    max-height: 400px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1%;
-    border-radius: 5px;
-    text-align: center;
+    text-align: left;
 }
 
 #rules ul {
@@ -214,9 +212,11 @@ div {
     margin-left: 20px;
     list-style-type: none;
 }
+
 /* Footer */
 .footer {
     position: fixed;
+    width: 100%;
     left: 0;
     bottom: 0;
     background-color: black;
@@ -227,7 +227,9 @@ div {
 /* Media queries */
 
 @media (max-width: 414px) {
-    #start-screen, .controls-area {
+
+    .container,
+    .controls-area {
         width: 100%;
     }
 
@@ -244,6 +246,7 @@ div {
         font-size: 0.6rem;
         left: -0.7rem;
     }
+
     .btn--gray {
         margin-top: 0;
     }
@@ -264,11 +267,12 @@ div {
 }
 
 @media (max-width: 320px) {
-    #rules, #start-screen, .game-area {
+    .container {
         height: 70vh;
     }
 
-    #start-screen, .controls-area {
+    .container,
+    .controls-area {
         width: 75%;
         margin: 10px auto;
     }
