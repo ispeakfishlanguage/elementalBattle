@@ -27,30 +27,29 @@
         <div id="start-screen" class="container">
             <h2>Choose a number of rounds to start</h2>
             <div class="controls-area">
-                <button data-type="start-1" class="btn btn--big btn--gray">1</button>
-                <button data-type="start-3" class="btn btn--big btn--gray">3</button>
-                <button data-type="start-5" class="btn btn--big btn--gray">5</button>
-                <button data-type="show-rules" class="btn btn--big btn--gray">Rules</button>
+                <button value="1" class="btn btn--big btn--gray">1</button>
+                <button value="3" class="btn btn--big btn--gray">3</button>
+                <button value="5" class="btn btn--big btn--gray">5</button>
             </div>
 
         </div>
         <!--Game area-->
-        <div class="container" id="game-area">
+        <div class="container hidden" id="game-area">
             <!--Player controls-->
             <div class="controls-area">
-                <button data-type="fire" class="btn btn--big btn--red">
+                <button value="fire" class="btn btn--big btn--red choice">
                     <i class="fas fa-fire"></i>
                 </button>
-                <button data-type="water" class="btn btn--big btn--blue">
+                <button value="water" class="btn btn--big btn--blue choice">
                     <i class="fas fa-water"></i>
                 </button>
-                <button data-type="air" class="btn btn--big btn--purple">
+                <button value="air" class="btn btn--big btn--purple choice">
                     <i class="fas fa-wind"></i>
                 </button>
-                <button data-type="earth" class="btn btn--big btn--green">
+                <button value="earth" class="btn btn--big btn--green choice">
                     <i class="fas fa-mountain-sun"></i>
                 </button>
-                <button data-type="lightning" class="btn btn--big btn--yellow">
+                <button value="lightning" class="btn btn--big btn--yellow choice">
                     <i class="fas fa-cloud-bolt"></i>
                 </button>
                 <!--Score visualization-->
@@ -63,11 +62,11 @@
                     <p id="result"></p>
                 </div>
                 <!--Reset button-->
-                <button data-type="reset-game" class="btn btn--big btn--gray">Restart</button>
+                <button id="reset-game" class="btn btn--big btn--gray">Restart</button>
             </div>
         </div>
         <!-- Rules -->
-        <div id="rules" class="container">
+        <div id="rules" class="container hidden">
             <h2>Rules</h2>
             <strong>Objective:</strong>
             <p>The player chooses an element, and the computer randomly selects an element. The game
@@ -91,6 +90,7 @@
                 <li>Lightning defeats Water and Air.</li>
             </ul>
         </div>
+        <button id="show-rules" class="btn btn--big btn--gray">Rules</button>
     </main>
 
     <!--Footer-->

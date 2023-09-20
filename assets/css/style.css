@@ -21,6 +21,11 @@ a:hover {
     text-decoration: wavy;
 }
 
+/* Hide rules screen */
+.hidden {
+    display: none;
+}
+
 /* Heading */
 .heading {
     text-align: center;
@@ -203,7 +208,7 @@ a:hover {
 .btn--gray:hover {
     background-color: #0d1013;
 }
-#show-rules {
+#show-rules, #reset-game {
     font-size: medium;
 }
 

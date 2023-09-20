@@ -1,103 +1,134 @@
-//Wait for the DOM to finish loading before running the game
-//Get the button elements from start screen and add event listeners to them
-//When button clicked, hide start screen
-//Show game screen
-//Run the game
+
+// Define global variables
 let playerScore = 0;
 let computerScore = 0;
 let rounds;
+let currentRound = 1;
 
+// Define choice elements and which elements they beat
 const elements = {
     fire: ["earth", "air"],
     water: ["fire", "lightning"],
     earth: ["water", "air"],
     air: ["earth", "lightning"],
-    lightning: ["water", "air"]
+    lightning: ["earth", "water"]
 };
 
+// Define different screens
 const startScreen = document.getElementById("start-screen");
-const startButtons = startScreen.getElementsByTagName("button");
-const gameScreen = document.getElementById("game-area");
 const rulesScreen = document.getElementById("rules");
-const choices = gameScreen.getElementsByTagName("button");
+const gameScreen = document.getElementById("game-area");
 
+// Define choice buttons
+const choices = gameScreen.getElementsByClassName("choice");
+
+// Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
+    // Get the rules button and add an event listener to it
+    const rulesButton = document.getElementById("show-rules");
+rulesButton.addEventListener("click", function () {
+    rulesScreen.classList.toggle("hidden");
+});
+    // Get the restart button and add an event listener to it
+    const restartButton = document.getElementById("reset-game");
+    restartButton.addEventListener("click", function () {
+        resetGame();
+    });
+    // Get the start buttons and add event listeners to them
+    const startButtons = startScreen.getElementsByTagName("button");
     for (let button of startButtons) {
         button.addEventListener("click", function () {
-            if (this.getAttribute("data-type") === "show-rules") {
-                showRules();
-            } else {
-                rounds = this.getAttribute("data-type");
-                startGame(rounds);
-            }
-        })
-    }
-
-    showStartScreen();
-})
-
-function startGame(rounds) {
-    document.getElementById("start-screen").style.display = "none";
-    document.getElementById("game-area").style.display = "block";
-    if (rounds === "start-3") {
-        document.getElementById("rounds").innerHTML = 3;
-    } else if (rounds === "start-5") {
-        document.getElementById("rounds").innerHTML = 5;
-    } else {
-        document.getElementById("rounds").innerHTML = 1;
-    }
-    playGame(rounds);
-}
-function playGame(rounds) {
-    let playerChoice = determinePlayerChoice();
-    let computerChoice = determineComputerChoice();
-    let winner = determineWinner(playerChoice, computerChoice);
-    updateScore(winner);
-    showResult(winner);
-    updateRound(round);
-}
-
-function determinePlayerChoice() {
-    let playerChoice = "";
-    for (let choice of choices) {
-        choice.addEventListener("click", function () {
-            return playerChoice = this.getAttribute("data-type");
+            rounds = parseInt(button.getAttribute("value"));
+            startGame();
         });
     }
-}
-function determineComputerChoice() {
-    return computerChoice = elements[Math.floor(Math.random() * 5)];
-}
-function determineWinner(playerChoice, computerChoice) {
-    let winner = "";
-    if (playerChoice === computerChoice) {
-        winner = "tie";
+
+    // Add event listeners to choice buttons after the DOM has loaded
+    for (let choice of choices) {
+        choice.addEventListener("click", function () {
+            const playerChoice = this.getAttribute("value");
+            playGame(playerChoice);
+        });
     }
-    playerChoice in elements[computerChoice] ? winner = "computer" : winner = "player";
+});
+showStartScreen();
+
+
+/**
+ * Function to start the game, displays the game UI and hides the start screen
+ */
+function startGame() {
+    playerScore = 0;
+    computerScore = 0;
+    currentRound = 1;
+    document.getElementById("player").innerHTML = playerScore;
+    document.getElementById("computer").innerHTML = computerScore;
+    document.getElementById("round").innerHTML = currentRound;
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("start-screen").style.display = "none";
+    document.getElementById("game-area").style.display = "block";
+    playGame();
+}
+
+/**
+ * Function to play the game, determines the player and computer choices, determines the winner, updates the score and shows the result
+ */
+function playGame(playerChoice) {
+    let computerChoice = determineComputerChoice();
+    let winner = determineWinner(playerChoice, computerChoice);
+    updateRound();
+    updateScore(winner);
+    showResult(winner);
     
-    return winner;
+}
+
+/**
+ * 
+ * Determine the computer's choice
+ */
+function determineComputerChoice() {
+    const elementKeys = Object.keys(elements);
+    const randomIndex = Math.floor(Math.random() * elementKeys.length);
+    return elementKeys[randomIndex];
+}
+
+    
+
+
+/**
+ * Determine the winner of the round
+ */
+function determineWinner(playerChoice, computerChoice) {
+    if (elements[playerChoice].includes(computerChoice)) {
+        return "player";
+    } else if (elements[computerChoice].includes(playerChoice)) {
+        return "computer";
+    } else {
+        return "tie";
+    }
 }
 
 
+/**
+ * Update the score of the player and computer
+ */
 function updateScore(winner) {
-    if (winner === "player") {
-        playerScore++;
-    } else if (winner === "computer") {
-        computerScore++;
-    }
+    winner === "tie" ? null : winner === "player" ? playerScore++ : computerScore++;
+
     document.getElementById("player").innerHTML = playerScore;
     document.getElementById("computer").innerHTML = computerScore;
 }
 
-
-function updateRound(round) {
-    round++;
-    document.getElementById("round").innerHTML = round;
-    if (round === rounds) {
+/**
+ * Update the round number that is being played
+ */
+function updateRound() {
+    currentRound++;
+    document.getElementById("round").innerHTML = currentRound;
+    if (currentRound > rounds) {
         endGame();
     }
 }
-
 
 function showResult(winner) {
     let result = document.getElementById("result");
@@ -110,35 +141,23 @@ function showResult(winner) {
     }
 }
 
-function showRules() {
-    document.getElementById("start-screen").style.display = "none";
-    document.getElementById("game-area").style.display = "none";
-    document.getElementById("rules").style.display = "block";
-}
-
-function hideRules() {
-    document.getElementById("start-screen").style.display = "none";
-    document.getElementById("game-area").style.display = "block";
-    document.getElementById("rules").style.display = "none";
-}
 
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
-    round = 1;
+    currentRound = 1;
     document.getElementById("player").innerHTML = playerScore;
     document.getElementById("computer").innerHTML = computerScore;
-    document.getElementById("round").innerHTML = round;
+    document.getElementById("round").innerHTML = currentRound;
+    document.getElementById("result").innerHTML = "";
     showStartScreen();
 }
 
 function endGame() {
-    if (playerScore > computerScore) {
-        alert("You win!");
-    } else if (computerScore > playerScore) {
-        alert("You lose!");
-    } else {
+    if (playerScore === computerScore) {
         alert("It's a tie!");
+    } else {
+        alert(playerScore > computerScore ? "You win the game!" : "You lost the game!");
     }
     resetGame();
 }
