@@ -1,4 +1,3 @@
-
 // Define global variables
 let playerScore = 0;
 let computerScore = 0;
@@ -32,29 +31,29 @@ document.getElementById("show-rules").addEventListener("click", function () {
 
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
-    
     // Get the start buttons and add event listeners to them
     const startButtons = startScreen.getElementsByTagName("button");
     for (let button of startButtons) {
         button.addEventListener("click", function () {
             rounds = parseInt(button.getAttribute("value"));
-            startGame();
+            const playerChoice = ""; // You need to set the player's choice here
+            startGame(playerChoice);
         });
     }
 
-    // Add event listeners to choice buttons after the DOM has loaded
     for (let choice of choices) {
         choice.addEventListener("click", function () {
             const playerChoice = this.getAttribute("value");
-            playGame(playerChoice);
+            playRound(playerChoice);
         });
     }
 });
 
+
 /**
- * Function to start the game, displays the game UI and hides the start screen
+ * Function to start the game
  */
-function startGame() {
+function startGame(playerChoice) {
     playerScore = 0;
     computerScore = 0;
     currentRound = 1;
@@ -64,70 +63,34 @@ function startGame() {
     document.getElementById("result").innerHTML = "";
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("game-area").style.display = "block";
-    playGame();
 }
 
 /**
- * Function to play the game, determines the player and computer choices, determines the winner, updates the score and shows the result
+ * Function to play the game
  */
-function playGame(playerChoice) {
-    let computerChoice = determineComputerChoice();
-    let winner = determineWinner(playerChoice, computerChoice);
-    updateRound();
-    updateScore(winner);
-    showResult(winner);
-    
-}
-
-/**
- * 
- * Determine the computer's choice
- */
-function determineComputerChoice() {
+function playRound(playerChoice) {
+    // Determine the computer's choice
     const elementKeys = Object.keys(elements);
     const randomIndex = Math.floor(Math.random() * elementKeys.length);
-    return elementKeys[randomIndex];
-}
-
-    
-
-
-/**
- * Determine the winner of the round
- */
-function determineWinner(playerChoice, computerChoice) {
+    let computerChoice = elementKeys[randomIndex];
+    console.log("Player choice: " + playerChoice);
+    console.log("Computer choice: " + computerChoice);
+    //Determine the winner of the round
+    let winner; 
     if (elements[playerChoice].includes(computerChoice)) {
-        return "player";
+        winner =  "player";
     } else if (elements[computerChoice].includes(playerChoice)) {
-        return "computer";
+        winner = "computer";
     } else {
-        return "tie";
+        winner = "tie";
     }
-}
 
-
-/**
- * Update the score of the player and computer
- */
-function updateScore(winner) {
+    // Update the score
     winner === "tie" ? null : winner === "player" ? playerScore++ : computerScore++;
 
     document.getElementById("player").innerHTML = playerScore;
     document.getElementById("computer").innerHTML = computerScore;
-}
 
-/**
- * Update the round number that is being played
- */
-function updateRound() {
-    currentRound++;
-    document.getElementById("round").innerHTML = currentRound;
-    if (currentRound > rounds) {
-        endGame();
-    }
-}
-
-function showResult(winner) {
     let result = document.getElementById("result");
     if (winner === "player") {
         result.innerHTML = "You win!";
@@ -136,30 +99,24 @@ function showResult(winner) {
     } else {
         result.innerHTML = "It's a tie!";
     }
-}
 
-
-function resetGame() {
-    playerScore = 0;
-    computerScore = 0;
-    currentRound = 1;
-    document.getElementById("player").innerHTML = playerScore;
-    document.getElementById("computer").innerHTML = computerScore;
+    currentRound++;
     document.getElementById("round").innerHTML = currentRound;
-    document.getElementById("result").innerHTML = "";
-    showStartScreen();
+    if (currentRound > rounds) {
+        if (playerScore === computerScore) {
+            alert("It's a tie!");
+        } else {
+            alert(playerScore > computerScore ? "You win the game!" : "You lost the game!");
+        }
+        resetGame();
+    }
+    
 }
 
-function endGame() {
-    if (playerScore === computerScore) {
-        alert("It's a tie!");
-    } else {
-        alert(playerScore > computerScore ? "You win the game!" : "You lost the game!");
-    }
-    resetGame();
-}
-function showStartScreen() {
+/**
+ * Function to reset the game
+ */
+function resetGame() {
     document.getElementById("start-screen").style.display = "block";
     document.getElementById("game-area").style.display = "none";
-    document.getElementById("rules").style.display = "none";
 }
