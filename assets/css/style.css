@@ -213,12 +213,11 @@ a:hover {
 }
 
 /* Rules Screen */
-#rules {
+#rules-screen {
     text-align: left;
-    display: none;
 }
 
-#rules ul {
+#rules-screen ul {
     text-align: left;
     margin-left: 20px;
     list-style-type: none;

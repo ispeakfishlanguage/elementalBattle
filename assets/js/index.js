@@ -16,24 +16,23 @@ const elements = {
 
 // Define different screens
 const startScreen = document.getElementById("start-screen");
-const rulesScreen = document.getElementById("rules");
+const rulesScreen = document.getElementById("rules-screen");
 const gameScreen = document.getElementById("game-area");
 
 // Define choice buttons
 const choices = gameScreen.getElementsByClassName("choice");
 
+// Get the restart button and add an event listener to it
+document.getElementById("reset-game").addEventListener("click", resetGame)
+
+// Get the rules button and add an event listener to it
+document.getElementById("show-rules").addEventListener("click", function () {
+    rulesScreen.classList.contains("hidden") ? rulesScreen.classList.remove("hidden") : rulesScreen.classList.add("hidden");
+});
+
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
-    // Get the rules button and add an event listener to it
-    const rulesButton = document.getElementById("show-rules");
-rulesButton.addEventListener("click", function () {
-    rulesScreen.classList.toggle("hidden");
-});
-    // Get the restart button and add an event listener to it
-    const restartButton = document.getElementById("reset-game");
-    restartButton.addEventListener("click", function () {
-        resetGame();
-    });
+    
     // Get the start buttons and add event listeners to them
     const startButtons = startScreen.getElementsByTagName("button");
     for (let button of startButtons) {
@@ -51,8 +50,6 @@ rulesButton.addEventListener("click", function () {
         });
     }
 });
-showStartScreen();
-
 
 /**
  * Function to start the game, displays the game UI and hides the start screen
