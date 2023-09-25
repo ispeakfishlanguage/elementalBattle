@@ -18,7 +18,7 @@
     <!--Header-->
     <header>
         <h1 class="heading">
-            <img class="logo" src="assets/images/logo.png" alt="logo"> Elemental Battle
+            <img class="logo" src="assets/images/logo.png" alt="logo: image divided in four squares containing a leaf, wind lines, flames and a drop of water respectively"> Elemental Battle
         </h1>
     </header>
     <!--Main-->
@@ -27,9 +27,9 @@
         <div id="start-screen" class="container">
             <h2>Choose a number of rounds to start</h2>
             <div class="controls-area">
-                <button value="1" class="btn btn--big btn--gray">1</button>
-                <button value="3" class="btn btn--big btn--gray">3</button>
-                <button value="5" class="btn btn--big btn--gray">5</button>
+                <button value="1" class="btn btn--big btn--gray" aria-label="1 round">1</button>
+                <button value="3" class="btn btn--big btn--gray" aria-label="Best of 3 rounds">3</button>
+                <button value="5" class="btn btn--big btn--gray" aria-label="Best of 5 rounds">5</button>
             </div>
 
         </div>
@@ -37,19 +37,19 @@
         <div class="container hidden" id="game-area">
             <!--Player controls-->
             <div class="controls-area">
-                <button value="fire" class="btn btn--big btn--red choice">
+                <button value="fire" class="btn btn--big btn--red choice" aria-label="fire">
                     <i class="fas fa-fire"></i>
                 </button>
-                <button value="water" class="btn btn--big btn--blue choice">
+                <button value="water" class="btn btn--big btn--blue choice" aria-label="water">
                     <i class="fas fa-water"></i>
                 </button>
-                <button value="air" class="btn btn--big btn--purple choice">
+                <button value="air" class="btn btn--big btn--purple choice" aria-label="air">
                     <i class="fas fa-wind"></i>
                 </button>
-                <button value="earth" class="btn btn--big btn--green choice">
+                <button value="earth" class="btn btn--big btn--green choice" aria-label="earth">
                     <i class="fas fa-mountain-sun"></i>
                 </button>
-                <button value="lightning" class="btn btn--big btn--yellow choice">
+                <button value="lightning" class="btn btn--big btn--yellow choice" aria-label="lightning">
                     <i class="fas fa-cloud-bolt"></i>
                 </button>
                 <!--Score visualization-->
@@ -62,10 +62,13 @@
                     <p id="result"></p>
                 </div>
                 <!--Reset button-->
-                <button id="reset-game" class="btn btn--big btn--gray">Restart</button>
+                <button id="reset-game" class="btn btn--big btn--gray" aria-label="Restart the game">Restart</button>
             </div>
         </div>
-        <!-- Rules -->
+        <!-- Rules button-->
+        <button id="show-rules" class="btn btn--big btn--gray" aria-label="Read the rules">Rules</button>
+
+        <!--Rules screen-->
         <div id="rules-screen" class="container hidden">
             <h2>Rules</h2>
             <strong>Objective:</strong>
@@ -90,13 +93,13 @@
                 <li>Lightning defeats Water and Air.</li>
             </ul>
         </div>
-        <button id="show-rules" class="btn btn--big btn--gray">Rules</button>
+        
     </main>
 
     <!--Footer-->
     <footer>
         <div class="footer">
-            <p>Elemental Battle was made by <a href="https://github.com/ispeakfishlanguage/">ispeakfishlang</a></p>
+            <p>Elemental Battle was made by <a href="https://github.com/ispeakfishlanguage/" target="_blank" aria-label="Link to my github user page (opens in new tab)">ispeakfishlang</a></p>
         </div>
     </footer>
 
