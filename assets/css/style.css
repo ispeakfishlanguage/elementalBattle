@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
 body {
-    background: url('../images/background.png') no-repeat center center/cover;
+    background: url('../images/background.png') no-repeat center center/cover fixed;
     font-family: 'MedievalSharp', cursive;
     color: whitesmoke;
     text-align: center;
 }
 
 main {
-    background-color: none;
+    margin-bottom: 100px;
 }
 
 a {
@@ -32,7 +32,7 @@ a:hover {
     font-size: 2.5rem;
     color: white;
     text-shadow: 2px 2px 2px black;
-    background-color: none;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .logo {
@@ -42,24 +42,19 @@ a:hover {
 
 /* Styling for container div */
 .container {
-    background-color: rgba(0, 0, 0, 0.7);
-    /* Use rgba with opacity for the background color */
+    background-color: rgba(0, 0, 0, 0.7); /* Use rgba with opacity for the background color */
     max-width: 600px;
     width: 60%;
     border-radius: 5px;
-    margin: 0 auto;
-    /* Center horizontally */
-    padding: 1%;
-    /* Add some padding for spacing */
-    box-sizing: border-box;
-    /* Include padding and border in the width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 1%; /* Add some padding for spacing */
+    box-sizing: border-box; /* Include padding and border in the width */
 }
 
 /* Reset opacity for text within the container */
 .container h2,
 .container p {
-    opacity: 1;
-    /* Keep the text fully opaque */
+    opacity: 1; /* Keep the text fully opaque */
 }
 
 
@@ -115,6 +110,7 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 1.2px;
     color: whitesmoke;
+    font-size: medium;
 }
 
 .btn:focus {
@@ -133,8 +129,8 @@ a:hover {
     transition: all 0.5s;
 }
 
-.btn--big::after {
-    content: attr(data-type);
+.btn--big:not(.btn--gray):after {
+    content: attr(value);
     font-size: 1rem;
     color: whitesmoke;
     position: relative;
@@ -236,7 +232,9 @@ a:hover {
 /* Media queries */
 
 @media (max-width: 414px) {
-
+    main{
+        margin-bottom: 70px;
+    }
     .container,
     .controls-area {
         width: 100%;
@@ -276,10 +274,6 @@ a:hover {
 }
 
 @media (max-width: 320px) {
-    .container {
-        height: 70vh;
-    }
-
     .container,
     .controls-area {
         width: 75%;
@@ -288,5 +282,13 @@ a:hover {
 
     .btn--big {
         margin: 10px 10px;
+    }
+
+    #show-rules {
+        font-size: x-small;
+    }
+
+    #reset-game {
+        font-size: 6px;
     }
 }
