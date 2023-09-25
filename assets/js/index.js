@@ -66,7 +66,7 @@ function startGame(playerChoice) {
 }
 
 /**
- * Function to play the game
+ * Function to play a round
  */
 function playRound(playerChoice) {
     // Determine the computer's choice
@@ -76,9 +76,9 @@ function playRound(playerChoice) {
     console.log("Player choice: " + playerChoice);
     console.log("Computer choice: " + computerChoice);
     //Determine the winner of the round
-    let winner; 
+    let winner;
     if (elements[playerChoice].includes(computerChoice)) {
-        winner =  "player";
+        winner = "player";
     } else if (elements[computerChoice].includes(playerChoice)) {
         winner = "computer";
     } else {
@@ -87,30 +87,32 @@ function playRound(playerChoice) {
 
     // Update the score
     winner === "tie" ? null : winner === "player" ? playerScore++ : computerScore++;
-
     document.getElementById("player").innerHTML = playerScore;
     document.getElementById("computer").innerHTML = computerScore;
-
+    //Show the result of the round
     let result = document.getElementById("result");
     if (winner === "player") {
-        result.innerHTML = "You win!";
+        result.innerHTML = `Computer chose ${computerChoice}. You win!`;
     } else if (winner === "computer") {
-        result.innerHTML = "You lose!";
+        result.innerHTML = `Computer chose ${computerChoice}. You lose!`;
     } else {
-        result.innerHTML = "It's a tie!";
+        result.innerHTML = `Computer chose ${computerChoice}. It's a tie!`;
     }
-
-    currentRound++;
-    document.getElementById("round").innerHTML = currentRound;
-    if (currentRound > rounds) {
+    // Check if the game is over
+    if (currentRound >= rounds) {
         if (playerScore === computerScore) {
             alert("It's a tie!");
         } else {
             alert(playerScore > computerScore ? "You win the game!" : "You lost the game!");
         }
         resetGame();
+    } else {
+        // Update the round
+        currentRound++;
+        document.getElementById("round").innerHTML = currentRound;
     }
-    
+
+
 }
 
 /**
