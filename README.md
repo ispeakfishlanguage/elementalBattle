@@ -37,10 +37,10 @@ This is my second portfolio project for Code Institute's full-stack developing B
 * [Deployment & Local Development](#deployment--local-development)
   * [Deployment](#deployment)
   * [Local Development](#local-development)
-    * [How to Fork](#how-to-fork)
     * [How to Clone](#how-to-clone)
 
 * [Testing](#testing)
+  *[Testing the buttons](#testing-the-elements-of-the-webpage)
 
 * [Credits](#credits)
   * [Code Used](#code-used)
@@ -127,8 +127,7 @@ The main colors used in the website are:
 
 * whitesmoke:          Used for text color in the body and other elements.
 * darkgoldenrod:       Used for link color on hover.
-* rgba(0, 0, 0, 0.7):  Used for the semi-transparent background color of the .container class.
-* black:               Used as the background color for the footer.
+* black:               Used as the background color for the footer and with 70% opacity as the background color for the start, game, and rules screens.
 * #445361:             Used as a background color for the round selection, restart and rules buttons.
 
 ![color palette](documentation/images/color_palette.png)
@@ -158,9 +157,9 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 ### Wireframes
 
-![Start screen](documentation/images/start.png)
-![Game Screen](documentation/images/game.png)
-![Rules Screen](documentation/images/rules.png)
+![Start screen](documentation/images/start_wireframe.png)
+![Game Screen](documentation/images/game_wireframe.png)
+![Rules Screen](documentation/images/rules_wireframe.png)
 
 ## Features
 
@@ -174,19 +173,19 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 * There is a game screen where the user can make a choice of element to play with and see their score, compute's score, which round number they are playing, and a button to go back to the start screen.
 
-![game feature](documentation/images/game_page.png)
+![game page](documentation/images/game_page.png)
 
 * Once the user has started a round of the game they can play by choosing Fire, Water, Air, Earth, Lightning.  Each element wins against another two, and the user plays against the computer that randomly selects an element.
 
 ![user choices](documentation/images/choices_icons.png)
 
-* A restart game button has been added to the game to go back to the start screen when the user chosses to do so.
+* A restart game button has been added to the game to go back to the start screen when the user chooses to do so.
 
 * A rules button has been added at the bottom of the screen. The user can then open the screen with the rules whenever they want, clicking the rules button again makes this screen hide.
 
 * The rules section explaining the game objective and rules to the user
 
-![rules](documentation/images/rules_screen.png)
+![rules screen](documentation/images/rules_screen.png)
 
 * In my footer there is a link to my Github profile
 
@@ -270,9 +269,49 @@ To clone the repository:
 ## Testing
 
 * Website was tested on the following browsers: Chrome on Windows 11, and on an iPad 11". Safari on iPad 11" and with a Macbook Pro 14" 2021.
+
 * For mobile it's been tested on a iPhone 13.
+
 * The website is responsive when using Google Developer Tools' responsive screen adjuster.
-* HTML Validator, CSS Validator and Wave for accessibility 
+
+* [HTML Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fispeakfishlanguage.github.io%2FelementalBattle%2F) for the main HTML code.
+
+* [CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fispeakfishlanguage.github.io%2FelementalBattle%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) for the CSS styling.
+
+* [JSHint](jshint.com) no errors were found while passing through this evaluation tool. 
+![JSHint Metrics](documents\images\jshint_metrics.png)
+
+There were however four warnings.
+![JSHint Warnings](documents\images\jshint_warnings.png)
+
+* [Wave Evaluation tool](https://wave.webaim.org/report#/https://ispeakfishlanguage.github.io/elementalBattle/) was actively employed throughout the development process and during the final testing phase of the deployed website to conduct comprehensive accessibility assessments.
+
+The testing procedure was primarily designed to verify the fulfillment of the following key criteria:
+
+* All forms were equipped with associated labels or aria-labels, ensuring that these elements are audibly presented to screen reader users when they navigate to form inputs.
+
+* The color contrast levels were rigorously examined to meet or exceed the minimum ratio specified in WCAG 2.1 Contrast Guidelines.
+
+* The hierarchical structure of heading levels was thoroughly reviewed to ensure that no levels were missed or skipped. This ensures that the significance of content is accurately conveyed to end users.
+
+* All content was strategically organized within landmarks to facilitate effortless navigation for users relying on assistive technology. This feature allows users to traverse the website by distinct page regions.
+
+* Any non-textual content was equipped with appropriate alternative text or titles to ensure that descriptive information is effectively relayed to screen reader users.
+
+* The HTML page's "lang" attribute was correctly set to indicate the language used, English.
+
+* Aria properties were meticulously implemented in adherence to best practices, contributing to enhanced accessibility.
+
+* The development process adhered to the coding best practices specified in WCAG 2.1 to ensure comprehensive accessibility compliance.
+
+This rigorous testing and adherence to accessibility standards were integral parts of the website development process, guaranteeing an inclusive and user-friendly experience for all visitors.
+
+* Lighthouse tool for accessibility and performance.
+
+![Lighthouse - mobile](documents\images\lighthouse_mobile.png)
+![Lighthouse - desktop](documents\images\lighthouse_desktop.png)
+
+#### Testing the elements of the webpage
 
 | Purpose                                              | Action                  | Expected                                            | Result |
 | ---------------------------------------------------- | ----------------------- | --------------------------------------------------- | ------ |
