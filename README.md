@@ -149,7 +149,7 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 * The icons were taken from [FontAwesome](https://fontawesome.com/)
 
-![choices icons](documents\images\choices_icons.png)
+![choices icons](documentation\images\choices_icons.png)
 
 * The logo image is Nature icons created by juicy_fish on [Flaticon](https://www.flaticon.com/free-icons/nature)
 
@@ -279,10 +279,10 @@ To clone the repository:
 * [CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fispeakfishlanguage.github.io%2FelementalBattle%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) for the CSS styling.
 
 * [JSHint](jshint.com) no errors were found while passing through this evaluation tool. 
-![JSHint Metrics](documents\images\jshint_metrics.png)
+![JSHint Metrics](documentation\images\jshint_metrics.png)
 
 There were however four warnings.
-![JSHint Warnings](documents\images\jshint_warnings.png)
+![JSHint Warnings](documentation\images\jshint_warnings.png)
 
 * [Wave Evaluation tool](https://wave.webaim.org/report#/https://ispeakfishlanguage.github.io/elementalBattle/) was actively employed throughout the development process and during the final testing phase of the deployed website to conduct comprehensive accessibility assessments.
 
@@ -308,8 +308,8 @@ This rigorous testing and adherence to accessibility standards were integral par
 
 * Lighthouse tool for accessibility and performance.
 
-![Lighthouse - mobile](documents\images\lighthouse_mobile.png)
-![Lighthouse - desktop](documents\images\lighthouse_desktop.png)
+![Lighthouse - mobile](documentation\images\lighthouse_mobile.png)
+![Lighthouse - desktop](documentation\images\lighthouse_desktop.png)
 
 #### Testing the elements of the webpage
 
