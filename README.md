@@ -308,8 +308,8 @@ This rigorous testing and adherence to accessibility standards were integral par
 
 * Lighthouse tool for accessibility and performance.
 
-![Lighthouse - mobile](documentation\images\lighthouse_mobile.png)
-![Lighthouse - desktop](documentation\images\lighthouse_desktop.png)
+![Lighthouse - mobile](documentation/images/lighthouse_mobile.png)
+![Lighthouse - desktop](documentation/images/lighthouse_desktop.png)
 
 #### Testing the elements of the webpage
 
