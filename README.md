@@ -1,7 +1,7 @@
 Welcome,
 
 # Elemental Battle
-
+Elemental Battle is a simple JavaScript-based game inspired by the concept of elemental interactions. Players choose an element, and the computer selects one as well. The game determines the winner based on the rules governing the interactions between the elements.
 This is my second portfolio project for Code Institute's full-stack developing Bootcamp and I used HTML, CSS and JavaScript combined for the first time
 
 [Here is a live demo of the website](https://ispeakfishlanguage.github.io/elementalBattle/)
@@ -11,6 +11,10 @@ This is my second portfolio project for Code Institute's full-stack developing B
 ---
 
 ## CONTENTS
+* [Game information](#game-information)
+    * [Game description](#game-description)
+    * [Game Rules](#game-rules)
+    * [Game Mechanics](#game-mechanics)
 
 * [User Experience](#user-experience-ux)
   * [User Stories](#user-stories)
@@ -46,6 +50,55 @@ This is my second portfolio project for Code Institute's full-stack developing B
 
 ---
 
+## Game Information
+
+#### Game description
+
+The player chooses an element, and the computer randomly selects an element. The game determines the winner based on the interactions between the elements.
+Elements:
+* Fire
+* Water
+* Earth
+* Air
+* Lightning
+
+#### Game Rules
+
+Element Interactions:
+* Fire beats Earth and Air.
+* Water extinguishes Fire and defeats Lightning.
+* Earth absorbs Water and Air.
+* Air defeats Earth and Lightning.
+* Lightning defeats Water and Air.
+
+#### Game Mechanics
+
+Objective: The objective of the game is to win as many rounds as possible against the computer opponent. 
+
+Game Flow:
+
+* Start Screen: The game starts with a start screen that allows the player to choose the number of rounds they want to play. The player clicks on one of the number buttons to select the number of rounds.
+
+* Gameplay Screen: After selecting the number of rounds, the game transitions to the gameplay screen. Here, the player can see the current round number, the player's score, the computer's score, and the result of the previous round (initially empty).
+
+* Player's Choice: The player makes a choice by clicking one of the choice buttons (e.g., "fire," "water," "earth," "air," "lightning"). This represents the player's move for the current round.
+
+* Computer's Choice: The computer randomly selects one of the elements (choices) available in the game.
+
+* Determining the Winner: The game determines the winner of the round based on the rules defined in the elements object. Each element can beat or be beaten by specific other elements. For example, "fire" beats "earth" and "air." The code checks if the player's choice beats the computer's choice or vice versa to determine the round winner. If neither beats the other, it's a tie.
+
+* Updating Scores: The game updates the player's and computer's scores based on the outcome of the round. Winning a round increases the respective score by 1 point.
+
+* Displaying Results: The result of the round is displayed on the screen, indicating whether the player won, lost, or tied the round. It also shows what choice the computer made.
+
+* Round Progression: The game increments the round number and updates the displayed round number.
+
+* Game Over: The game checks if the current round number is equal to or greater than the total number of rounds selected at the beginning. If so, the game is over. It displays an alert message indicating whether the player won, lost, or tied the game and restarts the game.
+
+* Restarting the Game Manually: The player can also restart the game by clicking a "Restart" button, which takes them back to the start screen.
+
+In summary, the game is based on a series of rounds where the player and the computer make choices, and the winner of each round is determined by the predefined rules. The player's objective is to win as many rounds as possible within the specified number of rounds.
+
 ## User Experience (UX)
 
 #### Why This Website Exists
@@ -72,10 +125,11 @@ Accessibility: Alt text for all images ensured. Clear labels for all interactive
 
 The main colors used in the website are:
 
-*whitesmoke:          Used for text color in the body and other elements.
-*darkgoldenrod:       Used for link color on hover.
-*rgba(0, 0, 0, 0.7):  Used for the semi-transparent background color of the .container class.
-*black:               Used as the background color for the footer.
+* whitesmoke:          Used for text color in the body and other elements.
+* darkgoldenrod:       Used for link color on hover.
+* rgba(0, 0, 0, 0.7):  Used for the semi-transparent background color of the .container class.
+* black:               Used as the background color for the footer.
+* #445361:             Used as a background color for the round selection, restart and rules buttons.
 
 ![color palette](documentation/images/color_palette.png)
 
@@ -92,16 +146,21 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 * The background image was generated by [Midjourney](https://www.midjourney.com/app/jobs/aeb9a5f9-9538-4fe0-be7a-9e7eb98decd1/)
 
+![background image](assets\images\background.png)
+
 * The icons were taken from [FontAwesome](https://fontawesome.com/)
 
-* The logo image is Nature icons created by juicy_fish on [Flaticon] (https://www.flaticon.com/free-icons/nature)
+![choices icons](documents\images\choices_icons.png)
 
+* The logo image is Nature icons created by juicy_fish on [Flaticon](https://www.flaticon.com/free-icons/nature)
+
+![logo image](assets\images\logo.png) 
 
 ### Wireframes
 
-![Start](documentation/images/start.png)
-![Game](documentation/images/game.png)
-![Rules](documentation/images/rules.png)
+![Start screen](documentation/images/start.png)
+![Game Screen](documentation/images/game.png)
+![Rules Screen](documentation/images/rules.png)
 
 ## Features
 
@@ -109,17 +168,17 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 * The user has the option to read the rules at all times by clicking the button with the text "Rules"
 
-![start page](documentation/images/start_game_feature.png)
+![start page](documentation/images/start_page.png)
 
 * When the user decides to start the game there are different options for how many rounds they want to play before it's decided if they won or lost the game.
 
 * There is a game screen where the user can make a choice of element to play with and see their score, compute's score, which round number they are playing, and a button to go back to the start screen.
 
-![game feature](documentation/images/game_feature.png)
+![game feature](documentation/images/game_page.png)
 
 * Once the user has started a round of the game they can play by choosing Fire, Water, Air, Earth, Lightning.  Each element wins against another two, and the user plays against the computer that randomly selects an element.
 
-![user choices](documentation/images/user_choices.png)
+![user choices](documentation/images/choices_icons.png)
 
 * A restart game button has been added to the game to go back to the start screen when the user chosses to do so.
 
@@ -127,7 +186,7 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 * The rules section explaining the game objective and rules to the user
 
-![rules](documentation/images/rules_feature.png)
+![rules](documentation/images/rules_screen.png)
 
 * In my footer there is a link to my Github profile
 
@@ -210,7 +269,7 @@ To clone the repository:
 
 ## Testing
 
-* Website was tested on the following browsers: Chrome on Windows 11, and on an iPad 13". Safari on iPad 13" and with a Macbook Pro 14" 2021.
+* Website was tested on the following browsers: Chrome on Windows 11, and on an iPad 11". Safari on iPad 11" and with a Macbook Pro 14" 2021.
 * For mobile it's been tested on a iPhone 13.
 * The website is responsive when using Google Developer Tools' responsive screen adjuster.
 * HTML Validator, CSS Validator and Wave for accessibility 

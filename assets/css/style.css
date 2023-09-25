@@ -61,6 +61,7 @@ a:hover {
 /* Start Screen */
 #start-screen {
     display: block;
+    padding-bottom: 65px;
 }
 
 /* Game layout */
@@ -78,7 +79,10 @@ a:hover {
     width: 90%;
     margin: 3px auto;
     display: inline-block;
-    justify-content: space-between;
+}
+
+.controls-area:not(.score-area) {
+    line-height: 150px;
 }
 
 #round {
@@ -98,7 +102,8 @@ a:hover {
 
 .scores {
     display: inline-block;
-    padding: 25px;
+    margin-top: 50px;
+
 }
 
 /* Buttons */
@@ -135,6 +140,7 @@ a:hover {
     color: whitesmoke;
     position: relative;
     left: -0.5em;
+    top: 10px;
 }
 
 .btn--blue {
@@ -210,6 +216,7 @@ a:hover {
 /* Rules Screen */
 #rules-screen {
     text-align: left;
+    margin-top: 20px;
 }
 
 #rules-screen ul {
@@ -238,6 +245,10 @@ a:hover {
     .container,
     .controls-area {
         width: 100%;
+    }
+
+    .controls-area:not(.score-area){
+        line-height: 100px;
     }
 
     .btn--big {
