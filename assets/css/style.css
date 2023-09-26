@@ -67,24 +67,26 @@ a:hover {
 /* Game layout */
 #game-area {
     display: none;
+    padding-bottom: 50px;
 }
 
+/* Score area */
 .score-area {
     margin: 5px auto;
     width: 60%;
     font-size: 1.2rem;
+    padding-top: 20px;
 }
 
+/* Choices area */
 .controls-area {
     width: 90%;
     margin: 3px auto;
     display: inline-block;
-}
-
-.controls-area:not(.score-area) {
     line-height: 150px;
+    overflow: hidden;
 }
-
+/* Styling for the scores and round number */
 #round {
     color: whitesmoke;
     font-weight: bold;
@@ -102,8 +104,7 @@ a:hover {
 
 .scores {
     display: inline-block;
-    margin-top: 50px;
-
+    padding: 0 5px;
 }
 
 /* Buttons */
@@ -136,13 +137,15 @@ a:hover {
 
 .btn--big:not(.btn--gray):after {
     content: attr(value);
-    font-size: 1rem;
+    font-size: 0.7rem;
     color: whitesmoke;
     position: relative;
     left: -0.5em;
     top: 10px;
+    text-align: center;
 }
 
+/* Gameplay buttons */
 .btn--blue {
     border-color: lightskyblue;
     color: lightskyblue;
@@ -155,8 +158,8 @@ a:hover {
 }
 
 .btn--yellow {
-    border-color: gold;
-    color: gold;
+    border-color: goldenrod;
+    color: goldenrod;
 }
 
 .btn--yellow:active,
@@ -211,6 +214,7 @@ a:hover {
 }
 #show-rules, #reset-game {
     font-size: medium;
+    margin-top: 10px;
 }
 
 /* Rules Screen */
@@ -247,12 +251,14 @@ a:hover {
         width: 100%;
     }
 
-    .controls-area:not(.score-area){
+    .controls-area {
         line-height: 100px;
+        padding-left: 5px;
+        padding-right: 15px;
     }
 
     .btn--big {
-        margin: 0 10px;
+        margin: 0 30px;
         padding: 5px;
         border: 5px solid;
         width: 50px;
@@ -293,13 +299,5 @@ a:hover {
 
     .btn--big {
         margin: 10px 10px;
-    }
-
-    #show-rules {
-        font-size: x-small;
-    }
-
-    #reset-game {
-        font-size: 6px;
     }
 }

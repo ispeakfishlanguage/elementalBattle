@@ -22,7 +22,7 @@ const gameScreen = document.getElementById("game-area");
 const choices = gameScreen.getElementsByClassName("choice");
 
 // Get the restart button and add an event listener to it
-document.getElementById("reset-game").addEventListener("click", resetGame)
+document.getElementById("reset-game").addEventListener("click", resetGame);
 
 // Get the rules button and add an event listener to it
 document.getElementById("show-rules").addEventListener("click", function () {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
  * Function to start the game
  */
-function startGame(playerChoice) {
+function startGame() {
     playerScore = 0;
     computerScore = 0;
     currentRound = 1;
@@ -73,8 +73,7 @@ function playRound(playerChoice) {
     const elementKeys = Object.keys(elements);
     const randomIndex = Math.floor(Math.random() * elementKeys.length);
     let computerChoice = elementKeys[randomIndex];
-    console.log("Player choice: " + playerChoice);
-    console.log("Computer choice: " + computerChoice);
+
     //Determine the winner of the round
     let winner;
     if (elements[playerChoice].includes(computerChoice)) {
@@ -101,11 +100,11 @@ function playRound(playerChoice) {
     // Check if the game is over
     if (currentRound >= rounds) {
         if (playerScore === computerScore) {
-            alert("It's a tie!");
+            result.innerHTML += `It's a tie!`;
         } else {
-            alert(playerScore > computerScore ? "You win the game!" : "You lost the game!");
+            playerScore > computerScore ? result.innerHTML += `<p>You win the game!</p>` : result.innerHTML += `<p>You lost the game!</p>`;
         }
-        resetGame();
+        toggleButtons(true);
     } else {
         // Update the round
         currentRound++;
@@ -121,4 +120,14 @@ function playRound(playerChoice) {
 function resetGame() {
     document.getElementById("start-screen").style.display = "block";
     document.getElementById("game-area").style.display = "none";
+    toggleButtons(false);
+}
+
+/**
+ * Function to toggle the choice buttons on and off
+ */
+function toggleButtons(bool) {
+    for (let choice of choices) {
+        choice.disabled = bool;
+    }
 }

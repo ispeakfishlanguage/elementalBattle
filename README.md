@@ -171,6 +171,8 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 * When the user decides to start the game there are different options for how many rounds they want to play before it's decided if they won or lost the game.
 
+![rounds buttons](documentattion/images/rounds_buttons.png)
+
 * There is a game screen where the user can make a choice of element to play with and see their score, compute's score, which round number they are playing, and a button to go back to the start screen.
 
 ![game page](documentation/images/game_page.png)
@@ -179,19 +181,39 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 ![user choices](documentation/images/choices_icons.png)
 
+* A scoreboard is available and gives the user information about the scores, current round number and the result of the round as well as the game.
+
+![score section](documentation/images/scores_section.png)
+
 * A restart game button has been added to the game to go back to the start screen when the user chooses to do so.
 
+![restart game button](documentation/images/restart_game_button.png)
+
 * A rules button has been added at the bottom of the screen. The user can then open the screen with the rules whenever they want, clicking the rules button again makes this screen hide.
+
+![rules button](documentation/images/rules_button.png)
 
 * The rules section explaining the game objective and rules to the user
 
 ![rules screen](documentation/images/rules_screen.png)
 
-* In my footer there is a link to my Github profile
+* In the footer there is a link to my Github profile
 
 ![Github link](documentation/images/footer_feature.png)
 
 ### General features on each page
+
+* Header Element visible at all times
+
+![header](documentation/images/header.png)
+
+* Sticky footer 
+
+![footer](documentation/images/footer_feature.png)
+
+* 404 Error page if a broken link is opened by the user
+
+![404 page](documentation/images/404.png)
 
 For a preview of the website on different screens
 [amiresponsive](https://ui.dev/amiresponsive?url=https://ispeakfishlanguage.github.io/elementalBattle/)
@@ -200,6 +222,7 @@ For a preview of the website on different screens
 
   * The possibility to play against another person
   * Have the user freely select how many rounds they want to play
+  * A loading screen after selecting the number of rounds
 
 ### Accessibility
 
@@ -214,7 +237,7 @@ This project uses JavaScript, HTML, and CSS. Markdown is used for this readme fi
 
 ### Frameworks, Libraries & Programs Used
 
-[Balsamiq](https://balsamiq.com/) - Used to create the wireframe of the project.
+[Balsamiq](https://balsamiq.com/) - Used to create the wireframes of the project.
 
 [Github](https://github.com) - Repository for the project.
 
@@ -239,6 +262,17 @@ GitHub CoPilot - Making it easier to cut and paste when reorganizing the code
 
 ## Deployment & Local Development
 
+#### Version Control
+
+The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘elementalBattle’.
+
+The following git commands were used throughout development to push code to the remote repository:
+
+```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.
+
+```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
+
+```git push``` - This command was used to push all committed code to the remote repository on github.
 ### Deployment
 
 The site is deployed using GitHub Pages - Elemental Battle.
@@ -246,12 +280,12 @@ The site is deployed using GitHub Pages - Elemental Battle.
 * To Deploy the site using GitHub Pages:
 
 * Login (or sign up) to Github.
-* Go to the repository for this project, ispeakfishlang/elementalBattle.git
+* Go to the repository for this project, (https://github.com/ispeakfishlang/elementalBattle.git)
 * Click the settings button.
 * Select pages in the left hand navigation menu.
 * From the source dropdown select main branch and press save.
 * The site has now been deployed, note that this process may take a few minutes before the site goes live.
-
+Here is a live demo: (https://ispeakfishlanguage.github.io/elementalBattle/)
 ### Local Development
 
 The github repository was cloned on Visual Studio Code to work on the code locally on my computer.
@@ -276,39 +310,45 @@ To clone the repository:
 
 * [HTML Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fispeakfishlanguage.github.io%2FelementalBattle%2F) for the main HTML code.
 
+![HTML validator result](documentation/images/w3c_html_result.png)
+
 * [CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fispeakfishlanguage.github.io%2FelementalBattle%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) for the CSS styling.
 
-* [JSHint](jshint.com) no errors were found while passing through this evaluation tool. 
-![JSHint Metrics](documentation\images\jshint_metrics.png)
+![CSS Validator Result](documentation/images/w3c_css_result.png)
 
-There were however four warnings.
-![JSHint Warnings](documentation\images\jshint_warnings.png)
+* [JSHint](jshint.com) no errors were found while passing through this evaluation tool. 
+
+![JSHint Metrics](documentation/images/jshint_metrics.png)
 
 * [Wave Evaluation tool](https://wave.webaim.org/report#/https://ispeakfishlanguage.github.io/elementalBattle/) was actively employed throughout the development process and during the final testing phase of the deployed website to conduct comprehensive accessibility assessments.
 
 The testing procedure was primarily designed to verify the fulfillment of the following key criteria:
 
-* All forms were equipped with associated labels or aria-labels, ensuring that these elements are audibly presented to screen reader users when they navigate to form inputs.
+  * All forms were equipped with associated labels or aria-labels, ensuring that these elements are audibly presented to screen reader users when they navigate to form inputs.
 
-* The color contrast levels were rigorously examined to meet or exceed the minimum ratio specified in WCAG 2.1 Contrast Guidelines.
+  * The color contrast levels were rigorously examined to meet or exceed the minimum ratio specified in WCAG 2.1 Contrast Guidelines.
 
-* The hierarchical structure of heading levels was thoroughly reviewed to ensure that no levels were missed or skipped. This ensures that the significance of content is accurately conveyed to end users.
+  * The hierarchical structure of heading levels was thoroughly reviewed to ensure that no levels were missed or skipped. This ensures that the significance of content is accurately conveyed to end users.
 
-* All content was strategically organized within landmarks to facilitate effortless navigation for users relying on assistive technology. This feature allows users to traverse the website by distinct page regions.
+  * All content was strategically organized within landmarks to facilitate effortless navigation for users relying on assistive technology. This feature allows users to traverse the website by distinct page regions.
 
-* Any non-textual content was equipped with appropriate alternative text or titles to ensure that descriptive information is effectively relayed to screen reader users.
+  * Any non-textual content was equipped with appropriate alternative text or titles to ensure that descriptive information is effectively relayed to screen reader users.
 
-* The HTML page's "lang" attribute was correctly set to indicate the language used, English.
+  * The HTML page's "lang" attribute was correctly set to indicate the language used, English.
 
-* Aria properties were meticulously implemented in adherence to best practices, contributing to enhanced accessibility.
+  * Aria properties were meticulously implemented in adherence to best practices, contributing to enhanced accessibility.
 
-* The development process adhered to the coding best practices specified in WCAG 2.1 to ensure comprehensive accessibility compliance.
+  * The development process adhered to the coding best practices specified in WCAG 2.1 to ensure comprehensive accessibility compliance.
 
-This rigorous testing and adherence to accessibility standards were integral parts of the website development process, guaranteeing an inclusive and user-friendly experience for all visitors.
+  This rigorous testing and adherence to accessibility standards were integral parts of the website development process, guaranteeing an inclusive and user-friendly experience for all visitors.
 
 * Lighthouse tool for accessibility and performance.
+  -On mobile:
 
 ![Lighthouse - mobile](documentation/images/lighthouse_mobile.png)
+
+  -On desktop:
+  
 ![Lighthouse - desktop](documentation/images/lighthouse_desktop.png)
 
 #### Testing the elements of the webpage
