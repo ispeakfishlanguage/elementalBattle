@@ -172,7 +172,7 @@ Rules Screen:
 
 404 Page:
 
-![404 Page](documentation/404_wireframe)
+![404 Page](documentation/404_wireframe.png)
 
 ## Features
 
@@ -184,7 +184,7 @@ Rules Screen:
 
 * When the user decides to start the game there are different options for how many rounds they want to play before it's decided if they won or lost the game.
 
-![rounds buttons](documentattion/images/rounds_buttons.png)
+![rounds buttons](documentation/images/rounds_buttons.png)
 
 * There is a game screen where the user can make a choice of element to play with and see their score, compute's score, which round number they are playing, and a button to go back to the start screen.
 
