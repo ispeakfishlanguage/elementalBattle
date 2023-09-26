@@ -35,12 +35,13 @@ This is my second portfolio project for Code Institute's full-stack developing B
   * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 
 * [Deployment & Local Development](#deployment--local-development)
+  * [Version Control](#version-control)
   * [Deployment](#deployment)
   * [Local Development](#local-development)
     * [How to Clone](#how-to-clone)
 
 * [Testing](#testing)
-  *[Testing the buttons](#testing-the-elements-of-the-webpage)
+  * [Testing the buttons](#testing-the-elements-of-the-webpage)
 
 * [Credits](#credits)
   * [Code Used](#code-used)
@@ -52,9 +53,10 @@ This is my second portfolio project for Code Institute's full-stack developing B
 
 ## Game Information
 
-#### Game description
+### Game description
 
 The player chooses an element, and the computer randomly selects an element. The game determines the winner based on the interactions between the elements.
+
 Elements:
 * Fire
 * Water
@@ -62,7 +64,7 @@ Elements:
 * Air
 * Lightning
 
-#### Game Rules
+### Game Rules
 
 Element Interactions:
 * Fire beats Earth and Air.
@@ -71,41 +73,41 @@ Element Interactions:
 * Air defeats Earth and Lightning.
 * Lightning defeats Water and Air.
 
-#### Game Mechanics
+### Game Mechanics
 
 Objective: The objective of the game is to win as many rounds as possible against the computer opponent. 
 
 Game Flow:
 
-* Start Screen: The game starts with a start screen that allows the player to choose the number of rounds they want to play. The player clicks on one of the number buttons to select the number of rounds.
+  * Start Screen: The game starts with a start screen that allows the player to choose the number of rounds they want to play. The player clicks on one of the number buttons to select the number of rounds.
 
-* Gameplay Screen: After selecting the number of rounds, the game transitions to the gameplay screen. Here, the player can see the current round number, the player's score, the computer's score, and the result of the previous round (initially empty).
+  * Gameplay Screen: After selecting the number of rounds, the game transitions to the gameplay screen. Here, the player can see the current round number, the player's score, the computer's score, and the result of the previous round (initially empty).
 
-* Player's Choice: The player makes a choice by clicking one of the choice buttons (e.g., "fire," "water," "earth," "air," "lightning"). This represents the player's move for the current round.
+  * Player's Choice: The player makes a choice by clicking one of the choice buttons (e.g., "fire," "water," "earth," "air," "lightning"). This represents the player's move for the current round.
 
-* Computer's Choice: The computer randomly selects one of the elements (choices) available in the game.
+  * Computer's Choice: The computer randomly selects one of the elements (choices) available in the game.
 
-* Determining the Winner: The game determines the winner of the round based on the rules defined in the elements object. Each element can beat or be beaten by specific other elements. For example, "fire" beats "earth" and "air." The code checks if the player's choice beats the computer's choice or vice versa to determine the round winner. If neither beats the other, it's a tie.
+  * Determining the Winner: The game determines the winner of the round based on the rules defined in the elements object. Each element can beat or be beaten by specific other elements. For example, "fire" beats "earth" and "air." The code checks if the player's choice beats the computer's choice or vice versa to determine the round winner. If neither beats the other, it's a tie.
 
-* Updating Scores: The game updates the player's and computer's scores based on the outcome of the round. Winning a round increases the respective score by 1 point.
+  * Updating Scores: The game updates the player's and computer's scores based on the outcome of the round. Winning a round increases the respective score by 1 point.
 
-* Displaying Results: The result of the round is displayed on the screen, indicating whether the player won, lost, or tied the round. It also shows what choice the computer made.
+  * Displaying Results: The result of the round is displayed on the screen, indicating whether the player won, lost, or tied the round. It also shows what choice the computer made.
 
-* Round Progression: The game increments the round number and updates the displayed round number.
+  * Round Progression: The game increments the round number and updates the displayed round number.
 
-* Game Over: The game checks if the current round number is equal to or greater than the total number of rounds selected at the beginning. If so, the game is over. It displays an alert message indicating whether the player won, lost, or tied the game and restarts the game.
+  * Game Over: The game checks if the current round number is equal to or greater than the total number of rounds selected at the beginning. If so, the game is over. It displays an alert message indicating whether the player won, lost, or tied the game and restarts the game.
 
-* Restarting the Game Manually: The player can also restart the game by clicking a "Restart" button, which takes them back to the start screen.
+  * Restarting the Game Manually: The player can also restart the game by clicking a "Restart" button, which takes them back to the start screen.
 
 In summary, the game is based on a series of rounds where the player and the computer make choices, and the winner of each round is determined by the predefined rules. The player's objective is to win as many rounds as possible within the specified number of rounds.
 
 ## User Experience (UX)
 
-#### Why This Website Exists
+### Why This Website Exists
 
 I made this website to to showcase my current skills while providing a fun and easy game to pass time. In this game the user plays against the computer and it's based on a rock, paper, scissor game with extra elements. It provides a simple and easy interaction with the user, game customization prompting the user to select how many rounds to play, and ensures users have a clear understanding of the game rules at all times with the rules button.
 
-#### User Stories 
+### User Stories 
 
 Starting the Game: User sees a start screen with title and is prompted to select how many rounds of the game will be played. Clicking any number options opens the game content. Clicking the "Rules" button opens a screen above it with the rules of the game.
 
@@ -136,7 +138,7 @@ The main colors used in the website are:
 
 I used googles font MedievalSharp as the main font with Cursive as backup in case the 'MedievalSharp' font is not available on the user's system or if there are issues loading it from Google Fonts.
 
-[Google Fonts](https://fonts.google.com/specimen/MedievalSharp)
+[Google Fonts MedievalSharp](https://fonts.google.com/specimen/MedievalSharp)
 
 ![Font](documentation/images/google_font_medievalsharp.png)
 
@@ -156,10 +158,21 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 ![logo image](assets/images/logo.png) 
 
 ### Wireframes
+Start screen: 
 
 ![Start screen](documentation/images/start_wireframe.png)
+
+Game Screen:
+
 ![Game Screen](documentation/images/game_wireframe.png)
+
+Rules Screen:
+
 ![Rules Screen](documentation/images/rules_wireframe.png)
+
+404 Page:
+
+![404 Page](documentation/404_wireframe)
 
 ## Features
 
@@ -203,6 +216,10 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 ### General features on each page
 
+* Favicon displayed on the tab based on the logo image
+
+![favicon](documentation/images/favicon.png)
+
 * Header Element visible at all times
 
 ![header](documentation/images/header.png)
@@ -211,11 +228,11 @@ I used googles font MedievalSharp as the main font with Cursive as backup in cas
 
 ![footer](documentation/images/footer_feature.png)
 
-* 404 Error page if a broken link is opened by the user
+* 404 Error page if a broken link is opened
 
 ![404 page](documentation/images/404.png)
 
-For a preview of the website on different screens
+For a preview of the website on different screens check 
 [amiresponsive](https://ui.dev/amiresponsive?url=https://ispeakfishlanguage.github.io/elementalBattle/)
 
 ### Future Implementations
@@ -262,7 +279,7 @@ GitHub CoPilot - Making it easier to cut and paste when reorganizing the code
 
 ## Deployment & Local Development
 
-#### Version Control
+### Version Control
 
 The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘elementalBattle’.
 
@@ -277,7 +294,7 @@ The following git commands were used throughout development to push code to the 
 
 The site is deployed using GitHub Pages - Elemental Battle.
 
-* To Deploy the site using GitHub Pages:
+To Deploy the site using GitHub Pages:
 
 * Login (or sign up) to Github.
 * Go to the repository for this project, (https://github.com/ispeakfishlang/elementalBattle.git)
@@ -369,20 +386,9 @@ The testing procedure was primarily designed to verify the fulfillment of the fo
 | Github link in the footer should link to my profile  | Click Github icon       | Come to Github profile //ispeakfishlang                     | PASS   |
 
 
-W3C Validator
-![HTML](documentation/images/html_validator.png)
-
-![CSS](documentation/images/css_validator.png)
-
-![Lighthouse Computer](documentation/images/lighthouse_laptop.png)
-
-![Lighthouse Mobile](documentation/images/lighthouse_mobile.png)
-
 ### Bugs
 
-These are the current issues I still want to resolve
-
-* The scores and the result are not updated on the last round.
+No bugs have been found left during final testing
 
 ## Credits
 
