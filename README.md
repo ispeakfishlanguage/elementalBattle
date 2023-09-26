@@ -95,9 +95,9 @@ Game Flow:
 
   * Round Progression: The game increments the round number and updates the displayed round number.
 
-  * Game Over: The game checks if the current round number is equal to or greater than the total number of rounds selected at the beginning. If so, the game is over. It displays an alert message indicating whether the player won, lost, or tied the game and restarts the game.
+  * Game Over: The game checks if the current round number is equal to or greater than the total number of rounds selected at the beginning. If so, the game is over. It displays a message indicating whether the player won, lost, or tied the game, and disables the choice buttons.
 
-  * Restarting the Game Manually: The player can also restart the game by clicking a "Restart" button, which takes them back to the start screen.
+  * Restarting the Game Manually: The player can restart the game by clicking a "Restart Game" button, which takes them back to the start screen.
 
 In summary, the game is based on a series of rounds where the player and the computer make choices, and the winner of each round is determined by the predefined rules. The player's objective is to win as many rounds as possible within the specified number of rounds.
 
@@ -172,7 +172,7 @@ Rules Screen:
 
 404 Page:
 
-![404 Page](documentation/404_wireframe.png)
+![404 Page](documentation/images/404_wireframe.png)
 
 ## Features
 
